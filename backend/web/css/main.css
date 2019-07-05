@@ -1,0 +1,16 @@
+html,
+body {
+    height: 100%;
+}
+
+.left{
+background:lightgoldenrodyellow;
+
+}
+.right{
+    background: lightseagreen;
+    
+}
+.body{
+    background:lightgrey;
+}

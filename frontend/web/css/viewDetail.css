@@ -1,0 +1,9 @@
+.container-detail{
+   margin: 5% ;
+    }
+.form-control{
+     width: 20%;
+ }
+ #layout{
+    display: flex;
+ }
