@@ -37,7 +37,7 @@ cartAsset::register($this);
     [
         'action'=>Yii::$app->getUrlManager()->getBaseUrl()."/cart/updateform",
         'options'=>[
-            'class'=>''
+            'class'=>' '
         ]
     ]
 )
@@ -47,7 +47,7 @@ cartAsset::register($this);
             <button type="button" tt="<?php echo $item->id ?>" class="btn btn-danger tru"  >-</button>
                    <input type="text" name="update_qtt" id="qtt-<?php echo $item->id ?>" class="input_update"  value=" <?php  echo $item->qtt?>" >
            <button type="button" tt='<?php echo $item->id ?>'  class="btn btn-danger cong">+</button>
-           <button type="submit" name="btn_update"class="btn btn-primary">update</button>
+           <?php  echo Html::submitButton('Update', ['cart/updateform','id'=>$item->id], ['class'=>"btn btn-primary updateItem"]) ?>
            </div>
 <?php ActiveForm::end(); ?>
 <?php ?>
@@ -55,14 +55,14 @@ cartAsset::register($this);
             </td>
            <td>
            <?php 
-            // echo Html::a('Delete',['cart/remove','id'=>$item->id],  ['class'=>'btn btn-sx btn-danger ','id'=>'deleteItem'+$item->id,'data-id'=>$item->id]) 
+            echo Html::a('Delete',['cart/remove','id'=>$item->id],  ['class'=>'btn btn-sx btn-danger deleteItem','data-id'=>$item->id]) 
             ?>
-           <a href="javascript:void(0)" class="btn btn-sx btn-danger" onclick="deleteItem(<?php echo $item->id ?>)">Delete</a>
+       
            </td>
           
            <td>
            
-           
+        
         
            </td>
           

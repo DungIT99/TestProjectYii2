@@ -50,13 +50,17 @@ public function actionRemove($id){
 public function actionUpdateform(){
    $cart = new Cart();
  if(Yii::$app->request->post()){
-    $id = $_POST["id"];
+ 
+    $id = $_POST['id'];
     $quantity = $_POST["update_qtt"];
+   
    $cart->update($id,$quantity);
+   // echo "ok";
 
-   return $this->redirect(['/cart']);
+  return $this->redirect(['/cart']);
  }
 }
+
 public function actionDeleteAll(){
    $Cart = new Cart();
    $Cart->deleteAll();

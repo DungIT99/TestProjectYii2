@@ -1,12 +1,31 @@
-// $(document).ready(function(){
-// $("#deleteItem").click(function(event){
-
-// event.preventDefault();
-// var url = $(this).attr("href");
+$(document).ready(function(){
+$(document).on('click','.deleteItem',function(event){
+event.preventDefault();
+var url = $(this).attr("href");
+alert(url);
 // var id = $(this).data("id");
+$.ajax({
+    url: url,
+    data :{},
+    type:'GET' ,
+    success: function(res){
+      $('.myTable').load(location.href+' .myBody');
+
+    }
+  });
+
+})
+
+
+$(document).on('click',".updateItem",function(event){
+  event.preventDefault();
+// var id = $("#id").val();
+// var qtt = $("#qtt-"+id).val();
+
+
 // $.ajax({
-//     url: url,
-//     data :{'id':id},
+//   url: 'Yii2/frontend/web/cart/updateform',
+//     data :{'id':id,'qtt':qtt},
 //     type:'GET' ,
 //     success: function(res){
 //       $('.myTable').load(location.href+' .myBody');
@@ -14,22 +33,11 @@
 //     }
 //   });
 
+})
 
-// })
- 
-    
-   
-//  })
+ })
 
- function deleteItem(id){
-url = window.location.href;
-   res = url.replace("index", "remove");
-   alert(res);
-  $.get(res,{'id':id}, function(data){
-    $('.myTable').load(url+' .myBody');
-  });
- }
- 
+
  $(document).ready(function(){
    $("#delete_all").click(function(event){
      event.preventDefault();
