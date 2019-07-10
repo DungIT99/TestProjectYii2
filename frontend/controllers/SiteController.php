@@ -15,7 +15,7 @@ use frontend\models\ContactForm;
 use frontend\models\books;
 use yii\helpers\ArrayHelper;
 use common\models\LoginCustomer;
-use common\models\customers;
+use frontend\models\CustomerSingup;
 
 
 
@@ -171,7 +171,7 @@ class SiteController extends Controller
      */
     public function actionSignup()
     {
-        $model = new customers();
+        $model = new CustomerSingup();
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
             
             Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');

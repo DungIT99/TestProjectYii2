@@ -48,7 +48,7 @@ class CustomerSingup extends Model
             return null;
         }
         
-        $user = new customers();
+        $user = new Customers();
         $user->username = $this->username;
         $user->email = $this->email;
         $user->setPassword($this->password);

@@ -9,6 +9,7 @@ use backend\models\Orders;
 use backend\models\OrderDetail;
 use frontend\component\Cart;
 
+
 class MycartController extends Controller{
 
  public function actionIndex(){
@@ -18,6 +19,7 @@ class MycartController extends Controller{
 if($model->load(Yii::$app->request->post())){
     $post = Yii::$app->request->post()['Mycart'];
     $cus = new Customers;
+$customer = new customers();
     $cus->username = $post["name"];
     $cus->address= $post["address"];
     $cus->phone = $post["phone"];
@@ -26,6 +28,7 @@ if($model->load(Yii::$app->request->post())){
     $cus->updated_at = time();
     $cus->password_hash = 'password_hash';
     $cus->auth_key = 'auth_key';
+
 if($cus->save()){
   $order = new Orders;
   $order->user_id = $cus->id;
@@ -45,14 +48,26 @@ foreach($cartStore as $ct){
 
 }
 if($orderDetail->save()){
-
- \Yii::$app->mail->compose()
- ->setFrom('hieutt1704@gmail.com')
- ->setTo($cus->email)
- ->setSubject('This is a test mail ' )
- ->send();
  $cart = new Cart();
- $cart->deleteAll();
+try {
+  Yii::$app->mailer->compose(
+    ['html' => 'don-hang'],
+    ['name' => "Hello name"]
+  )
+  ->setTo('nguyendung3099@gmail.com')
+  ->setFrom(['nguyendung3099@gmail.com' => "Dung dang dung de"])
+  ->setSubject('Don dat hang')
+  ->setTextBody('Thong tin don hang')
+  ->send();
+  $cart->deleteAll();
+} catch (\Throwable $th) {
+  echo 'Dung lung';die;
+}
+
+
+// return $this->render(['/cart']);
+
+
 }else{
   
 }

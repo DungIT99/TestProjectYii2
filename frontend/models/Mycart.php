@@ -18,7 +18,7 @@ class Mycart extends Model
     public function rules()
     {
         return [
-        [['name', 'email', 'snipping_method', 'payment_method','address'], 'required'],
+        [['name', 'email', 'snipping_method', 'payment_method','address'], 'required','message'=>'{attribute} không được để trống'],
         [['name', 'snipping_method', 'payment_method','address'],'string'],
         ['phone','integer']
         ];
