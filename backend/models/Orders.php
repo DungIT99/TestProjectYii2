@@ -51,6 +51,10 @@ class Orders extends \yii\db\ActiveRecord
             'payment_method' => 'Payment Method',
         ];
     }
-    
+    public function getOrder(){
+        $order = orders::find()->all();
+        return $order;
+    }
+
 
 }

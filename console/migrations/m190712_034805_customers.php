@@ -3,17 +3,10 @@
 use yii\db\Migration;
 
 /**
- * Class m190705_012951_customers
+ * Class m190712_034805_customers
  */
-class m190705_012951_customers extends Migration
-{
-    /**
-     * {@inheritdoc}
-     */
-    public function safeUp()
-    {
-
-    } public function up()
+class m190712_034805_customers extends Migration
+{  public function up()
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
@@ -28,13 +21,12 @@ class m190705_012951_customers extends Migration
             'password_hash' => $this->string()->notNull(),
             'password_reset_token' => $this->string()->unique(),
             'email' => $this->string()->notNull()->unique(),
-            'address' => $this->string()->notNull(),
-            'phone' => $this->integer()->notNull()->unique(),
+            'verification_token'=>$this->string()->defaultValue(null),
             'status' => $this->smallInteger()->notNull()->defaultValue(10),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
-            'verification_token'=>$this->string()->notNull()->unique(),
-            'auth_key'=>$this->string()->notNull(),
+            'address'=>$this->string()->notNull(),
+            'phone'=>$this->string()->notNull()
         ], $tableOptions);
     }
 

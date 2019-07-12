@@ -13,13 +13,14 @@ use frontend\component\Cart;
 class MycartController extends Controller{
 
  public function actionIndex(){
+
     $model = new Mycart();
     $cart = new Cart();
     $cartStore = $cart->cartStore;
 if($model->load(Yii::$app->request->post())){
     $post = Yii::$app->request->post()['Mycart'];
     $cus = new Customers;
-$customer = new customers();
+    $customer = new customers();
     $cus->username = $post["name"];
     $cus->address= $post["address"];
     $cus->phone = $post["phone"];
@@ -30,6 +31,7 @@ $customer = new customers();
     $cus->auth_key = 'auth_key';
 
 if($cus->save()){
+
   $order = new Orders;
   $order->user_id = $cus->id;
   $order->status = "0";
@@ -48,6 +50,7 @@ foreach($cartStore as $ct){
 
 }
 if($orderDetail->save()){
+ 
  $cart = new Cart();
 //try {
   Yii::$app->mailer->compose(
@@ -61,22 +64,24 @@ if($orderDetail->save()){
   ->send();
   return;
   $cart->deleteAll();
+
 //} catch (\Throwable $th) {
-  echo 'lỗi đặt hàng ';die;
+  // echo 'lỗi đặt hàng ';die;
 //}
 
 
-// return $this->render(['/cart']);
+return $this->render(['/cart']);
 
 
 }else{
-  
+  echo 'lỗi đặt hàng ';
 }
   }
 
 }else{
   return $this->render("index",[
     'model'=>$model,
+ 
 ]);
 }
 }

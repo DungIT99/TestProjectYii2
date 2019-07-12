@@ -20,7 +20,14 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
+           
         ],
+        'formatter' => [
+            'dateFormat' => 'dd.MM.yyyy',
+            'decimalSeparator' => ',',
+            'thousandSeparator' => ' ',
+            'currencyCode' => 'EUR',
+       ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
