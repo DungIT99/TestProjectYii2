@@ -78,6 +78,9 @@ AppAsset::register($this);
                <li class="list-group-item">
                      <?php echo Html::a('Quản Thuộc tính',['/attribute/index']) ?>
                </li>
+               <li class="list-group-item">
+                     <?php echo Html::a('Duyệt đơn hàng',['/order/index']) ?>
+               </li>
              
            </ul>
       

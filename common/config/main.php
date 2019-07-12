@@ -8,6 +8,8 @@ return [
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
+            // 'enableCsrfValidation' => true,
+           
         ],
         'authManager' => [
             'class'=>'yii\rbac\Dbmanager',

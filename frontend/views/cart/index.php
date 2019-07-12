@@ -35,7 +35,7 @@ cartAsset::register($this);
             <td  >
 <?php  $from = ActiveForm::begin(
     [
-        'action'=>Yii::$app->getUrlManager()->getBaseUrl()."/cart/updateform",
+        // 'action'=>Yii::$app->getUrlManager()->getBaseUrl()."/cart/updateform",
         'options'=>[
             'class'=>' '
         ]
@@ -47,7 +47,7 @@ cartAsset::register($this);
             <button type="button" tt="<?php echo $item->id ?>" class="btn btn-danger tru"  >-</button>
                    <input type="text" name="update_qtt" id="qtt-<?php echo $item->id ?>" class="input_update"  value=" <?php  echo $item->qtt?>" >
            <button type="button" tt='<?php echo $item->id ?>'  class="btn btn-danger cong">+</button>
-           <?php  echo Html::submitButton('Update', ['cart/updateform','id'=>$item->id], ['class'=>"btn btn-primary updateItem"]) ?>
+           <?php  echo Html::a('Update', ['cart/updateform'], ['class'=>"btn btn-primary updateItem" ,'tt'=>$item->id]) ?>
            </div>
 <?php ActiveForm::end(); ?>
 <?php ?>

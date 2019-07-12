@@ -49,20 +49,21 @@ foreach($cartStore as $ct){
 }
 if($orderDetail->save()){
  $cart = new Cart();
-try {
+//try {
   Yii::$app->mailer->compose(
     ['html' => 'don-hang'],
     ['name' => "Hello name"]
   )
-  ->setTo('nguyendung3099@gmail.com')
-  ->setFrom(['nguyendung3099@gmail.com' => "Dung dang dung de"])
+  ->setTo( $cus->email )
+  ->setFrom(['nguyendung3099@gmail.com' => "Đơn đặt hàng"])
   ->setSubject('Don dat hang')
   ->setTextBody('Thong tin don hang')
   ->send();
+  return;
   $cart->deleteAll();
-} catch (\Throwable $th) {
-  echo 'Dung lung';die;
-}
+//} catch (\Throwable $th) {
+  echo 'lỗi đặt hàng ';die;
+//}
 
 
 // return $this->render(['/cart']);

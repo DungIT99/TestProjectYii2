@@ -9,6 +9,11 @@ use backend\models\books;
 
 
 class CartController extends Controller{
+
+   public function beforeAction($action) {
+      $this->enableCsrfValidation = false;
+      return parent::beforeAction($action);
+  }
  public function actionIndex(){
    
   $cart = new Cart();
@@ -49,15 +54,14 @@ public function actionRemove($id){
 
 public function actionUpdateform(){
    $cart = new Cart();
+   print_r(Yii::$app->request->post());
  if(Yii::$app->request->post()){
- 
-    $id = $_POST['id'];
+    $id = $_POST['tt'];
     $quantity = $_POST["update_qtt"];
-   
    $cart->update($id,$quantity);
+   echo "ok";
    // echo "ok";
-
-  return $this->redirect(['/cart']);
+//   return $this->redirect(['/cart']);
  }
 }
 

@@ -19,21 +19,24 @@ $.ajax({
 
 $(document).on('click',".updateItem",function(event){
   event.preventDefault();
-// var id = $("#id").val();
-// var qtt = $("#qtt-"+id).val();
-
-
-// $.ajax({
-//   url: 'Yii2/frontend/web/cart/updateform',
-//     data :{'id':id,'qtt':qtt},
-//     type:'GET' ,
-//     success: function(res){
-//       $('.myTable').load(location.href+' .myBody');
-
-//     }
-//   });
-
+  var url = $(this).attr("href");
+var tt = $(this).attr("tt");
+var quantity = $("#qtt-"+tt).val();
+console.log(tt);
+console.log(quantity);
+$.ajax({
+  url: url,
+  data :{tt:tt,update_qtt:quantity},
+    type:'POST' ,
+    success: function(res){
+      console.log(res);
+      $('.myTable').load(location.href+' .myBody');
+      alert (" update thanh cong")
+    }
+  });
 })
+
+
 
  })
 
