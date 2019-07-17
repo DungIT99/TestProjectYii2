@@ -27,6 +27,7 @@ console.log(tt);
 console.log(quantity);
 $.ajax({
   url: url,
+  
   data :{tt:tt,update_qtt:quantity},
     type:'GET' ,
     success: function(res){
