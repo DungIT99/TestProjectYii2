@@ -53,7 +53,8 @@ class AppAsset extends AssetBundle
 	'js/main.js',
 	'js/modelAddCart.js',
 	'js/processingCart.js',
-	'js/heart.js'
+	'js/heart.js',
+	
 	
     ];
     public $depends = [

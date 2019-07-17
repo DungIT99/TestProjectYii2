@@ -1,6 +1,6 @@
 <?php
 namespace frontend\controllers;
-
+use mPDF;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -292,5 +292,29 @@ class SiteController extends Controller
         // return $this->redirect("index");
         return $this->render('getcategory',['books'=>$data]);
     }
+    public function actionCreatempdf()
+    {
+        // echo "ok";
+  
+        $mpdf = new mPDF();
+        $mpdf->WriteHTML($this->renderPartial('mpdf'));
+        $mpdf->Output();
+        exit;
+        // return $this->renderPartial('mpdf');
+    }
+    // public function actionSamplePdf()
+    // {
+    //     $mpdf = new mPDF;
+    //     $mpdf->WriteHTML('Sample Text');
+    //     $mpdf->Output();
+    //     exit;
+    // }
+    // public function actionForceDownloadPdf()
+    // {
+    //     $mpdf = new mPDF();
+    //     $mpdf->WriteHTML($this->renderPartial('mpdf'));
+    //     $mpdf->Output('MyPDF.pdf', 'D');
+    //     exit;
+    // }
   
 }

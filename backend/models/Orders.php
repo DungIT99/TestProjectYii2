@@ -55,6 +55,10 @@ class Orders extends \yii\db\ActiveRecord
         $order = orders::find()->all();
         return $order;
     }
+    public function getOrderDetail($id){
+        $order = orders::find()->where(['id'=>$id])->all();
+        return $order;
+    }
 
 
 }

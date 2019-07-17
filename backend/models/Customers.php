@@ -65,5 +65,10 @@ class Customers extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+    public function getCus($id){
+//  $cus = new customers();
+    $customer = customers::find()->where(['id'=>$id])->all();
+     return $customer;
+    }
  
 }

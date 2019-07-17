@@ -17,8 +17,9 @@ $.ajax({
 })
 
 
-$(document).on('click',".updateItem",function(event){
+$(document).on('click',"a.updateItem",function(event){
   event.preventDefault();
+  
   var url = $(this).attr("href");
 var tt = $(this).attr("tt");
 var quantity = $("#qtt-"+tt).val();
@@ -27,17 +28,15 @@ console.log(quantity);
 $.ajax({
   url: url,
   data :{tt:tt,update_qtt:quantity},
-    type:'POST' ,
+    type:'GET' ,
     success: function(res){
       console.log(res);
-      $('.myTable').load(location.href+' .myBody');
       alert (" update thanh cong")
+      $('.myTable').load(location.href+' .myBody');
+     
     }
   });
 })
-
-
-
  })
 
 

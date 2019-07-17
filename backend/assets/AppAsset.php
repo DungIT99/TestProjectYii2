@@ -21,6 +21,7 @@ class AppAsset extends AssetBundle
         // 'js/main.js',
         'js/jquery-ui.js',
         'js/jquery-formatDate.js',
+        'js/processingOrder.js'
         // 'tinymce/jquery.tinymce.min.js',
         
     ];

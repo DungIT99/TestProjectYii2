@@ -72,6 +72,8 @@ class AttributeController extends Controller
             if($model->save()){
                 return $this->redirect(['view', 'id' => $model->id]);
             }else{
+            
+            Yii::$app->session->addFlash('danger',' thêm moi thuộc tinh không thanh cong');
                 return $this->render('create', [
                     'model' => $model,
                 ]);

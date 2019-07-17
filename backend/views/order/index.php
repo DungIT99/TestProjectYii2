@@ -1,4 +1,5 @@
 <?php
+use yii\helpers\Html;
 ?>
 
 
@@ -12,6 +13,7 @@
             <th>Phương thức thanh toán </th>
             <th>Ngày tạo</th>
             <th>Trạng thái</th>
+            <th> </th>
         </tr>
     </thead>
     <tbody>
@@ -32,7 +34,7 @@
             }
             
             ?></td>
-           
+           <td><?php echo Html::a('Xem',['order/duyet','id'=>$order->id,'cusId'=>$order->user_id], ['class'=>'btn btn-success'])?></td>
         </tr>
 <?php $n++;endforeach; endif; ?>
     </tbody>

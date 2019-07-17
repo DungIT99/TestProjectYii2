@@ -27,6 +27,9 @@ class m190712_034805_customers extends Migration
             'updated_at' => $this->integer()->notNull(),
             'address'=>$this->string()->notNull(),
             'phone'=>$this->string()->notNull()
+
+
+            
         ], $tableOptions);
     }
 

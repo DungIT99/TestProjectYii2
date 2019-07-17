@@ -68,10 +68,7 @@ if($orderDetail->save()){
 //} catch (\Throwable $th) {
   // echo 'lỗi đặt hàng ';die;
 //}
-
-
 return $this->render(['/cart']);
-
 
 }else{
   echo 'lỗi đặt hàng ';

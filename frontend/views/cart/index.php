@@ -33,14 +33,15 @@ cartAsset::register($this);
             <td id="price-<?php echo $item->id ?>"><?php  echo $item->page ?></td>
             <td class ="total" id="tt-<?php echo $item->id ?>"><?php  echo $item->qtt*$item->page ?></td>
             <td  >
-<?php  $from = ActiveForm::begin(
-    [
-        // 'action'=>Yii::$app->getUrlManager()->getBaseUrl()."/cart/updateform",
-        'options'=>[
-            'class'=>' '
-        ]
-    ]
-)
+<?php 
+//  $from = ActiveForm::begin(
+//     [
+//         'action'=>Yii::$app->getUrlManager()->getBaseUrl()."/cart/updateform",
+//         'options'=>[
+//             'class'=>' '
+//         ]
+//     ]
+// )
     ?>
             <div style="display:flex">
             <input type="hidden" name="id" value="<?php echo $item->id ?>">
@@ -49,7 +50,9 @@ cartAsset::register($this);
            <button type="button" tt='<?php echo $item->id ?>'  class="btn btn-danger cong">+</button>
            <?php  echo Html::a('Update', ['cart/updateform'], ['class'=>"btn btn-primary updateItem" ,'tt'=>$item->id]) ?>
            </div>
-<?php ActiveForm::end(); ?>
+<?php 
+// ActiveForm::end(); 
+?>
 <?php ?>
             
             </td>
